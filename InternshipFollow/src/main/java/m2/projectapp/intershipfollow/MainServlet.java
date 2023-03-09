@@ -1,12 +1,23 @@
 package m2.projectapp.intershipfollow;
 
 import java.io.*;
+import java.util.List;
 
+import jakarta.ejb.EJB;
+import jakarta.ejb.EJBException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import model.PersonEntity;
+import model.PersonSB;
+import model.TutorEntity;
+import model.TutorSB;
 
 @WebServlet(name = "main", value = "/servletMain")
 public class MainServlet extends HttpServlet {
+    @EJB
+    PersonSB personSB;
+    @EJB
+    TutorSB tutorSB;
     private String h1;
     private String boxStyle;
     private String title;
@@ -26,6 +37,9 @@ public class MainServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
+        //test
+        List<PersonEntity> allPersons = personSB.getPersons();
+
 
         // Main Page
         PrintWriter out = response.getWriter();
@@ -44,10 +58,22 @@ public class MainServlet extends HttpServlet {
         out.println("<img class='bk' src='https://s2.loli.net/2023/02/16/ihXefda8mjFJ6Gk.jpg'/>");
         out.println("<div class='Box'>");
         out.println("<h1>" + h1 + "</h1>");
+        out.println("<h1>" + allPersons.get(0).getPrenom() + "</h1>");
+        try {
+            Object tutorToConnect = tutorSB.logIn("username1", "password");
+
+            out.println("<h1>" + ((TutorEntity)tutorToConnect).getUsername() + "</h1>");
+        }
+        catch (EJBException eJBException) {
+            out.println("<h1>Incorrect credentials</h1>");
+
+        }
+
         out.println("</div>");
         out.println("</body></html>");
     }
 
-    public void destroy() {
+
+        public void destroy() {
     }
 }

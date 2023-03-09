@@ -76,7 +76,7 @@
         </script>
     </head>
     <body>
-        <img class="bk" src="https://s2.loli.net/2023/02/16/ihXefda8mjFJ6Gk.jpg"/>
+    <img class="bk" src="https://s2.loli.net/2023/02/16/ihXefda8mjFJ6Gk.jpg"/>
         <div class="Box">
             <div class="loginHead">
                 <h1>Authentication</h1>
