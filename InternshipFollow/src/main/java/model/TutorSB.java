@@ -13,7 +13,6 @@ public class TutorSB {
     public /*TutorEntity*/ Object logIn(String username, String password) {
         Query query = entityManager.createQuery("select e from TutorEntity e where e.username = :username and e.password = :password")
                 .setParameter("username", username).setParameter("password", password);
-        System.out.println(query.getSingleResult());
 
         Object queryResult = query.getSingleResult();
         return queryResult;
@@ -24,5 +23,14 @@ public class TutorSB {
         else {
             return (TutorEntity) query.getSingleResult();
         }*/
+    }
+
+    public Object getTutorInfo(int tutor_id) {
+        Query query = entityManager.createQuery(
+                "select e from TutorEntity e where e.idTutor = :id_tutor")
+                .setParameter("id_tutor", tutor_id);
+
+        Object queryResult = query.getSingleResult();
+        return queryResult;
     }
 }
