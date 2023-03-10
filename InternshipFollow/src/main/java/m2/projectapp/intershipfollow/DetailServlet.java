@@ -7,12 +7,13 @@ import jakarta.servlet.annotation.*;
 
 @WebServlet(name = "detail", value = "/servletDetail")
 public class DetailServlet extends HttpServlet {
-    private String bk, Box, headLine, headImg, sonBox1, sonBox2, sonBox3, sonHeadLine, avatar,
+    private String title, bk, Box, headLine, headImg, sonBox1, sonBox2, sonBox3, sonHeadLine, avatar,
             CardSonBox1, CardSonBox1Span, CardSonBox1Input, etrLogo, CardSonBox2, CardSonBox2Span,
             CardSonBox2Input, CardSonBox2Textarea, CardSonBox3, CardSonBox3Span, CardSonBox3Textarea,
             btnStyle, btnStyleHover, listBtn, listBtnInline;
 
     public void init() {
+        title = "Detail Page";
         bk = ".bk {\n" +
                 "    width: 100%;\n" +
                 "    height: 100%;\n" +
@@ -194,7 +195,7 @@ public class DetailServlet extends HttpServlet {
         listBtn = ".listBtn {\n" +
                 "    position: relative;\n" +
                 "    top: 82.8%;\n" +
-                "    left: 37.5%;\n" +
+                "    left: 38.5%;\n" +
                 "    margin-top: 8px;\n" +
                 "}";
         listBtnInline = ".listBtnInline {\n" +
@@ -207,8 +208,8 @@ public class DetailServlet extends HttpServlet {
 
         // Detail page
         PrintWriter out = response.getWriter();
-        out.println("");
-        out.println("<html><head>");
+        out.println("<html>");
+        out.println("<head>");
         out.println("<style>");
         out.println(bk + Box + headLine + headImg + sonBox1 + sonBox2 + sonBox3 + sonHeadLine +
                 avatar + CardSonBox1 + CardSonBox1Span + CardSonBox1Input + etrLogo +
@@ -216,7 +217,7 @@ public class DetailServlet extends HttpServlet {
                 CardSonBox3 + CardSonBox3Span + CardSonBox3Textarea + btnStyle + btnStyleHover +
                 listBtn + listBtnInline);
         out.println("</style>");
-        out.println("<title>Detial Page</title>");
+        out.println("<title>" + title + "</title>");
         out.println("</head>");
         out.println("<body>");
         out.println("<img class=\"bk\" src=\"https://s2.loli.net/2023/02/16/ihXefda8mjFJ6Gk.jpg\"/>\n" +

@@ -37,7 +37,7 @@ public class MainServlet extends HttpServlet {
                 "cursor: pointer;" + "border-radius: 0.25rem;" + "border: 2px solid #333;" + "color: #333;" +
                 "background-color: transparent;" + "}";
         btnStyleHover = ".btnStyle:hover {" + "color: #fff;" + "background-color: #333;" + "}";
-        listBtn = ".listBtn {" + "position: relative;" + "left: 37.5%;" + "margin-top: 8px;" + "}";
+        listBtn = ".listBtn {" + "position: relative;" + "left: 34.5%;" + "margin-top: 8px;" + "}";
         listBtnInline = ".listBtnInline {" + "display: inline-block;" + "}";
     }
 
@@ -135,10 +135,15 @@ public class MainServlet extends HttpServlet {
                 "        </div>\n" +
                 "        <div class=\"listBtn\">\n" +
                 "            <div class=\"listBtnInline\">\n" +
-                "                <input class=\"btnStyle\" type=\"submit\" value=\"Modify\" name=\"mdfBtn\">\n" +
+                "                <form action=\"servletAdd\" method=\"get\">\n" +
+                "                    <input class=\"btnStyle\" type=\"submit\" value=\"Add\" name=\"mdfBtn\">\n" +
+                "                </form>\n" +
                 "            </div>\n" +
                 "            <div class=\"listBtnInline\">\n" +
                 "                <input class=\"btnStyle\" type=\"submit\" value=\"Validate\" name=\"valBtn\">\n" +
+                "            </div>\n" +
+                "            <div class=\"listBtnInline\">\n" +
+                "                <input class=\"btnStyle\" type=\"submit\" value=\"Delete\" name=\"delBtn\">\n" +
                 "            </div>\n" +
                 "            <div class=\"listBtnInline\">\n" +
                 "                <form action=\"servletDetail\" method=\"get\">\n" +
