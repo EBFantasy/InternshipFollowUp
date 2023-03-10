@@ -7,13 +7,12 @@ import jakarta.servlet.annotation.*;
 
 @WebServlet(name = "main", value = "/servletMain")
 public class MainServlet extends HttpServlet {
-    private String h1, boxStyle, title, bkStyle, headLine, headImg, strongHead,
+    private String boxStyle, title, bkStyle, headLine, headImg, strongHead,
             introBox, introImg, spanIntro, listHead, listTable, btnStyle, btnStyleHover,
-            listBtn;
+            listBtn, listBtnInline;
 
     public void init() {
         title = "MainPage";
-        h1 = "Main page";
         boxStyle = ".Box {" + "width: 1600px;" + "height: 800px;" + "padding: 40px;" +
                 "position: absolute;" + "top: 50%;" + "left: 50%;" + "transform: translate(-50%, -50%);" +
                 "animation: animated-border 1.5s infinite;" + "border: 1px solid;" + "border-radius: 1px;" +
@@ -39,6 +38,7 @@ public class MainServlet extends HttpServlet {
                 "background-color: transparent;" + "}";
         btnStyleHover = ".btnStyle:hover {" + "color: #fff;" + "background-color: #333;" + "}";
         listBtn = ".listBtn {" + "position: relative;" + "left: 37.5%;" + "margin-top: 8px;" + "}";
+        listBtnInline = ".listBtnInline {" + "display: inline-block;" + "}";
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -50,7 +50,7 @@ public class MainServlet extends HttpServlet {
         out.println("<head>");
         out.println("<style>");
         out.println(boxStyle + bkStyle + headLine + headImg + strongHead + introBox + introImg + spanIntro +
-                listHead + listTable + btnStyle + btnStyleHover + listBtn);
+                listHead + listTable + btnStyle + btnStyleHover + listBtn + listBtnInline);
         out.println("</style>");
         out.println("<script>");
         out.println("function creatTable() {\n" +
@@ -134,9 +134,18 @@ public class MainServlet extends HttpServlet {
                 "            </table>\n" +
                 "        </div>\n" +
                 "        <div class=\"listBtn\">\n" +
-                "            <input class=\"btnStyle\" type=\"button\" value=\"Modify\" name=\"mdfBtn\">\n" +
-                "            <input class=\"btnStyle\" type=\"submit\" value=\"Validate\" name=\"valBtn\">\n" +
-                "            <input class=\"btnStyle\" type=\"button\" value=\"Details\" name=\"dtlBtn\">\n" +
+                "            <div class=\"listBtnInline\">\n" +
+                "                <input class=\"btnStyle\" type=\"submit\" value=\"Modify\" name=\"mdfBtn\">\n" +
+                "            </div>\n" +
+                "            <div class=\"listBtnInline\">\n" +
+                "                <input class=\"btnStyle\" type=\"submit\" value=\"Validate\" name=\"valBtn\">\n" +
+                "            </div>\n" +
+                "            <div class=\"listBtnInline\">\n" +
+                "                <form action=\"servletDetail\" method=\"get\">\n" +
+                "                    <input class=\"btnStyle\" type=\"submit\" value=\"Details\" name=\"dtlBtn\">\n" +
+                "                </form>\n" +
+                "            </div>\n" +
+                "            <div style=\"clear: both;\"></div>\n" +
                 "        </div>\n" +
                 "    </div>");
         out.println("</body></html>");

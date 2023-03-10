@@ -13,4 +13,13 @@
         <url-pattern>/MainServlet/*</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>DetailServlet</servlet-name>
+        <servlet-class>m2.projectapp.intershipfollow.DetailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DetailServlet</servlet-name>
+        <url-pattern>/DetailServlet/*</url-pattern>
+    </servlet-mapping>
+
 </web-app>
